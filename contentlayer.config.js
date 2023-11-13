@@ -52,6 +52,10 @@ export const Post = defineDocumentType(() => ({
             type: "string",
             required: true,
         },
+        readingTime: {
+            type: "string",
+            required: true,
+        },
     },
     computedFields,
 }))
