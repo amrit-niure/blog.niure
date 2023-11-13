@@ -6,11 +6,11 @@ import { Badge } from '@/components/ui/badge';
 
 
 export const metadata: Metadata = {
-  title: 'Blog',
+  title: 'Post',
   description: 'Read my thoughts on software development, design, and more.',
 };
 
-export default function BlogPage() {
+export default function AllPosts() {
   return (
     <section>
       <h1 className="font-semibold text-2xl mb-8 tracking-tighter">

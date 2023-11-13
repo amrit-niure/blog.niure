@@ -68,7 +68,7 @@ function getPostFromParams(params: PostProps["params"]) {
   return post
 }
 
-const page: FC<PostProps> = ({ params } : PostProps) => {
+const Post: FC<PostProps> = ({ params } : PostProps) => {
   const post = getPostFromParams(params)
 
   if (!post) {
@@ -97,4 +97,4 @@ const page: FC<PostProps> = ({ params } : PostProps) => {
   )
 };
 
-export default page;
+export default Post;
