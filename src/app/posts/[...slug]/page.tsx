@@ -1,6 +1,4 @@
-
-// export default page;
-"use cleint"
+"use client"
 import { FC } from 'react';
 import { notFound } from "next/navigation"
 import { allPosts } from "contentlayer/generated"
