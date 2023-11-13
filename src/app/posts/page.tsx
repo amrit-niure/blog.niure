@@ -24,10 +24,10 @@ export default function AllPosts() {
           return 1;
         })
         .map((post) => (
-          <div className='flex '>
+          <div className='flex ' key={post.slug}>
 
           <Link
-            key={post.slug}
+        
             className="flex flex-col space-y-1 mb-4 w-fit "
             href={`${post.slug}`}
             >
