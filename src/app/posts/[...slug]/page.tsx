@@ -39,7 +39,7 @@ const Post: FC<PostProps> = ({ params } : PostProps) => {
 
   return (
     <article className="py-6 prose dark:prose-invert">
-         <motion.div className="fixed top-0 left-0 right-0 h-[3px] bg-foreground transform origin-left" style={{ scaleX }} />
+         <motion.div className="fixed top-0 left-0 right-0 h-[3px] bg-purple-500 transform origin-left" style={{ scaleX }} />
          <div className='flex gap-2 justify-end'>
       <span className='text-xs mt-0 text-foregroundLight'>{formatDate(post.date)}</span>
       <span className='text-xs mt-0 text-foregroundLight flex items-center gap-1'> <Timer size={15}/> {post.readingTime}</span>
