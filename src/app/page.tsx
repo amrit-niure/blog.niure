@@ -1,4 +1,5 @@
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+"use client"
+import { motion } from 'framer-motion';
 import { Badge } from "@/components/ui/badge";
 import { allPosts } from "contentlayer/generated";
 import { ArrowUpRight, Eye, User2 } from "lucide-react";
@@ -10,7 +11,7 @@ export default function Home() {
     <div>
       <div className="pt-8">
         <h1 className="text-2xl font-semibold pb-8 text-foreground  ">
-          hi, I'm Amrit 👋{" "}
+          hi, Im Amrit 👋{" "}
         </h1>
         <p className="text-justify tracking-tight text-foregroundLight">
           I am a <b>software developer</b> of Nepali origin, currently pursuing
@@ -19,7 +20,23 @@ export default function Home() {
           lives while staying abreast of evolving tools and technologies.
         </p>
       </div>
-
+      <motion.div
+      className=" border-dashed w-48 h-48 relative rounded-full border-[2px] custom-dashed-border" // Adjust the size of the main ring
+      animate={{ rotate: 360 }}
+      transition={{ duration: 4, repeat: Infinity, ease: 'linear' }}
+    >
+      <motion.div
+        className="border-2 border-dotted w-24 h-24 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-full"
+        animate={{ rotate: -360 }} // Adjust the direction of rotation for the inner ring
+        transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
+      >
+      <motion.div
+        className="border-2 border-dotted w-12 h-12 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-full"
+        animate={{ rotate: 360 }} // Adjust the direction of rotation for the inner ring
+        transition={{ duration: 3, repeat: Infinity, ease: 'linear' }}
+      ></motion.div>
+</motion.div>
+    </motion.div>
       <div className="pt-8">
         <div className="pb-8">
           <h1 className="text-2xl font-semibold text-foreground  ">projects</h1>
@@ -99,6 +116,8 @@ export default function Home() {
 
         {/* showcase projects */}
       </div>
+
+
 
       {/* recent posts */}
       <div className="py-8">

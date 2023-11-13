@@ -8,8 +8,11 @@ const nextConfig = {
         hostname: 'unsplash.com',
         pathname: '**',
       },
+      
     ],
   },
+  reactStrictMode: true,
+      swcMinify: true,
 }
 
 module.exports = withContentlayer(nextConfig);

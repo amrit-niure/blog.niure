@@ -45,7 +45,7 @@
 // };
 
 // export default page;
-'use client'
+"use cleint"
 import { FC } from 'react';
 import { notFound } from "next/navigation"
 import { allPosts } from "contentlayer/generated"
