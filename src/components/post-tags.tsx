@@ -16,19 +16,19 @@ const tags = [
   "vercel",
   "tailwindcss",
 ];
-
-const Marquee: FC<marqueeProps> = ({}) => {
+// {tags.map((tag) => (
+//     <div className="border bg-fadedBackground p-1 px-2 flex items-center justify-between cursor-pointer rounded-sm w-fit h-fit">
+//       <span className="font-semibold text-xs"> {tag}</span>
+//     </div>
+//   ))}
+const PostTags: FC<marqueeProps> = ({}) => {
   return (
     <motion.div className="overflow-x-hidden py-4 px-4">
       <motion.div className="flex gap-2  border-2">
-        {tags.map((tag) => (
-          <div className="border bg-fadedBackground p-1 px-2 flex items-center justify-between cursor-pointer rounded-sm w-fit h-fit">
-            <span className="font-semibold text-xs"> {tag}</span>
-          </div>
-        ))}
+  
       </motion.div>
     </motion.div>
   );
 };
 
-export default Marquee;
+export default PostTags;
