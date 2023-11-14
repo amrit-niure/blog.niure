@@ -19,13 +19,23 @@ const tags = [
 ];
 
 const PostTags: FC<marqueeProps> = ({}) => {
+
+const [width,setWidth] = useState(0);
+const carousel = useRef<HTMLDivElement>(null);
+
+useEffect(()=>{
+setWidth(carousel.current!.scrollWidth - carousel.current!.offsetWidth)
+},[])
   return (
-    <motion.div className="carousel overflow-hidden">
-      <motion.div className="inner-carousel bg-slate-400 flex gap-2 bg ">
+    <motion.div ref={carousel} className="carousel overflow-hidden mb-4">
+      <motion.div  
+      drag="x" 
+      dragConstraints={{right : 0,left : -width}}
+      className="inner-carousel  flex gap-2 ">
         {tags.map((tag,index) => (
-          <motion.div key={index} >
-            <div className="border bg-fadedBackground p-1 px-2 flex items-center justify-between cursor-pointer rounded-sm w-fit h-fit">
-              <span className="font-semibold text-xs"> {tag}</span>
+          <motion.div key={index} className="">
+            <div className="border bg-fadedBackground p-1 px-2 flex items-center justify-between cursor-pointer rounded-sm w-fit h-fit pointer-events-none">
+              <span className="font-semibold text-xs hover:underline  pointer-events-none"> {tag}</span>
             </div>
           </motion.div>
         ))}

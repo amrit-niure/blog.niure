@@ -12,9 +12,10 @@ export const metadata: Metadata = {
 export default function AllPosts() {
   return (
     <section>
-      <PostTags />
+     
       
-      <h1 className="font-semibold text-2xl mb-8 tracking-tighter">
+      <PostTags />
+      <h1 className="font-semibold text-2xl my-8 tracking-tighter">
         all posts
       </h1>
       {allPosts
