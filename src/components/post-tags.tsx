@@ -1,7 +1,7 @@
 "use client";
 import React, { FC } from "react";
 import { motion } from "framer-motion";
-import {useRef , useState, useEffect} from 'react'
+import { useRef, useState, useEffect } from "react";
 interface marqueeProps {}
 const tags = [
   "nextjs",
@@ -17,15 +17,19 @@ const tags = [
   "vercel",
   "tailwindcss",
 ];
-// {tags.map((tag) => (
-//     <div className="border bg-fadedBackground p-1 px-2 flex items-center justify-between cursor-pointer rounded-sm w-fit h-fit">
-//       <span className="font-semibold text-xs"> {tag}</span>
-//     </div>
-//   ))}
+
 const PostTags: FC<marqueeProps> = ({}) => {
   return (
     <motion.div className="carousel">
-Hello
+      <motion.div className="inner-carousel">
+        {tags.map((tag) => (
+          <motion.div key={tag}>
+            <div className="border bg-fadedBackground p-1 px-2 flex items-center justify-between cursor-pointer rounded-sm w-fit h-fit">
+              <span className="font-semibold text-xs"> {tag}</span>
+            </div>
+          </motion.div>
+        ))}
+      </motion.div>
     </motion.div>
   );
 };
