@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { allPosts } from "contentlayer/generated";
 import { formatDate } from "@/lib/utils";
-import { Badge } from "@/components/ui/badge";
-import Marquee from "@/components/marquee-tags";
+import PostTags from "@/components/post-tags";
 
 export const metadata: Metadata = {
   title: "Post",
@@ -13,7 +12,8 @@ export const metadata: Metadata = {
 export default function AllPosts() {
   return (
     <section>
-      <Marquee />
+      <PostTags />
+      
       <h1 className="font-semibold text-2xl mb-8 tracking-tighter">
         all posts
       </h1>
@@ -39,7 +39,6 @@ export default function AllPosts() {
                 </p>
               </div>
             </Link>
-            {/* <Badge variant="outline" className='ml-auto h-fit w-fit'>{post.relatedto} </Badge> */}
           </div>
         ))}
     </section>

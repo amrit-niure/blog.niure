@@ -1,6 +1,7 @@
 "use client";
-import { FC } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import React, { FC } from "react";
+import { motion } from "framer-motion";
+import {useRef , useState, useEffect} from 'react'
 interface marqueeProps {}
 const tags = [
   "nextjs",
@@ -23,10 +24,8 @@ const tags = [
 //   ))}
 const PostTags: FC<marqueeProps> = ({}) => {
   return (
-    <motion.div className="overflow-x-hidden py-4 px-4">
-      <motion.div className="flex gap-2  border-2">
-  
-      </motion.div>
+    <motion.div className="carousel">
+Hello
     </motion.div>
   );
 };
