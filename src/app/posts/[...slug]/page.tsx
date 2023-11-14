@@ -62,7 +62,7 @@ const Post: FC<PostProps> = ({ params }: PostProps) => {
           <p className="mt-0 text-foregroundLight">{post.description}</p>
         )}
         <div className="flex gap-2">
-          {post.tags!.map((index,tag) => (
+          {post.tags!.map((tag,index) => (
             <div className="border bg-fadedBackground p-1 px-2 flex items-center justify-between cursor-pointer rounded-sm w-fit h-fit" key={index}>
               <span className="font-semibold text-xs"> {tag}</span>
             </div>
