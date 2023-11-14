@@ -143,7 +143,7 @@ export default function Home() {
           </div>
 
           <div className="border bg-fadedBackground py-2 px-2 flex items-center justify-between cursor-pointer rounded-sm w-fit">
-            <h2 className="flex gap-2">
+            <h2 className="flex gap-2 ">
               <SiPrisma className="text-xl" />{" "}
               <span className="font-semibold text-sm"> Prisma</span>
             </h2>
@@ -240,9 +240,8 @@ export default function Home() {
             niureamrit2@gmail.com <ArrowUpRight size={15} />{" "}
           </a>
         </div>
-        <p className="text-foregroundLight">
-          - where simplicity meets brilliance and every line of code tells a
-          story of progress.
+        <p className="text-foregroundLight unique-font bg-slate-900 px-2 border-l-2">
+          where simplicity meets brilliance, innovation flourishes. 
         </p>
       </div>
     </div>

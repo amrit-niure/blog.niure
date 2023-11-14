@@ -2,6 +2,45 @@
 @tailwind components;
 @tailwind utilities;
  
+.custom-scrollbar-container {
+  width: 100%;
+  overflow: hidden;
+}
+
+.custom-scrollbar-content {
+  display: flex;
+  white-space: nowrap;
+  overflow-x: scroll;
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: transparent transparent; /* Firefox */
+}
+
+.custom-scrollbar-content::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+.custom-scrollbar-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar-content::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
+
+
+/* .marquee {
+  position: relative;
+  max-width: 100%;
+  height: 206px;
+  overflow-x: hidden;
+}
+
+.track {
+  position: absolute;
+  white-space: nowrap;
+} */
+
+
 @layer base {
   :root {
     --background: 0 0% 100%;
