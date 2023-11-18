@@ -2,6 +2,7 @@
 import React, { FC } from "react";
 import { motion } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
 interface marqueeProps {}
 const tags = [
   "nextjs",
@@ -23,11 +24,20 @@ const PostTags: FC<marqueeProps> = ({}) => {
 const [width,setWidth] = useState(0);
 const carousel = useRef<HTMLDivElement>(null);
 
+const handlePrevClick = () => {
+  console.log("Clicked")
+};
+
+const handleNextClick = () => {
+  console.log("Clicked")
+
+};
+
 useEffect(()=>{
 setWidth(carousel.current!.scrollWidth - carousel.current!.offsetWidth)
 },[])
   return (
-    <motion.div ref={carousel} className="carousel overflow-hidden mb-4">
+    <motion.div ref={carousel} className="carousel relative overflow-hidden mb-4  px-8">
       <motion.div  
       drag="x" 
       dragConstraints={{right : 0,left : -width}}
@@ -40,6 +50,14 @@ setWidth(carousel.current!.scrollWidth - carousel.current!.offsetWidth)
           </motion.div>
         ))}
       </motion.div>
+        {/* Left Arrow */}
+        <div className=' group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] left-0  p-2 bg-background/90 text-white cursor-pointer' onClick={handlePrevClick}>
+        <FaChevronLeft />
+      </div>
+      {/* Right Arrow */}
+      <div className=' group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] right-0   p-2 bg-background/90 text-white cursor-pointer' onClick={handlePrevClick}>
+        <FaChevronRight />
+      </div>
     </motion.div>
   );
 };
