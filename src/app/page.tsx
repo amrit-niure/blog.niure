@@ -42,7 +42,7 @@ export default function Home() {
           <span className="font-semibold"> Software Developer. </span> I
           specialize in the development of Web Applications. <br />
           <p className="border my-2 border-l-4 px-2 italic py-1 tracking-normal">
-          &#34; The true measure of success lies not just in the tools and
+          &#34; I believe, the true measure of success lies not just in the tools and
             technologies used, but in the positive impact the software makes. &#34;
           </p>
           Explore my portfolio to see how I&#39;m translating this philosophy into
