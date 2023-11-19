@@ -1,8 +1,26 @@
 "use client";
-import { TbBrandNextjs,TbBrandNodejs,TbBrandTypescript,TbBrandMysql } from "react-icons/tb";
-import { SiMongodb,SiTailwindcss,SiRedis,SiPrisma,SiDocker} from "react-icons/si";
-import { FaReact} from "react-icons/fa";
-import { BiLogoPostgresql} from "react-icons/bi";
+import {
+  TbBrandNextjs,
+  TbBrandNodejs,
+  TbBrandTypescript,
+  TbBrandMysql,
+  TbSquareLetterT 
+} from "react-icons/tb";
+import { VscSymbolMethod } from "react-icons/vsc";
+import {
+  SiMongodb,
+  SiTailwindcss,
+  SiRedis,
+  SiPrisma,
+  SiDocker,
+  SiGooglecloud,
+  SiKubernetes ,
+  SiGithubactions ,
+  SiFigma ,
+  SiJest ,
+} from "react-icons/si";
+import { FaReact,FaCode,FaLinux   } from "react-icons/fa";
+import { BiLogoPostgresql } from "react-icons/bi";
 
 import { allPosts } from "contentlayer/generated";
 import { ArrowUpRight, Eye, User2 } from "lucide-react";
@@ -17,14 +35,24 @@ export default function Home() {
         <h1 className="text-2xl font-semibold pb-8 text-foreground  ">
           hi, I&#39;m Amrit 👋{" "}
         </h1>
-        <p className="text-justify tracking-normal text-foregroundLight">
-          I am a <b>software developer</b> of Nepali origin, currently pursuing
-          Bachelor of Business Information Systems(Exp.2025). Rooted in
-          innovation, I consistently conceive novel ideas aimed at enhancing
-          lives while staying abreast of evolving tools and technologies.
+        <p className="text-justify tracking-tight text-foregroundLight">
+          I&#39;m Amrit Niure, a <span className="italic">junior</span>{" "}
+          <span className="font-semibold"> Software Developer. </span> I
+          specialize in the developement of Web Applications. <br />{" "}
+          <p className="border my-2 border-l-4 px-2 italic py-1 tracking-normal">
+           " The true measure of success lies not just in the tools and
+            technologies used, but in the positive impact the software makes. "
+          </p>{" "}
+          Explore my portfolio to see how I'm translating this philosophy into
+          practical applications, and{" "}
+          <span className="font-semibold hover:underline cursor-pointer">
+            let's connect
+          </span>{" "}
+          to discuss how we can collaboratively create software that truly
+          matters.
         </p>
       </div>
-
+      {/* 
       <div className="pt-8">
         <div className="pb-8">
           <h1 className="text-2xl font-semibold text-foreground  ">projects</h1>
@@ -91,11 +119,11 @@ export default function Home() {
             </div>
           </div>
         </div>
-        {/* showcase projects */}
-      </div>
+      
+      </div> */}
 
       {/* skills */}
-      <div className=" -z-10 ">
+      <div className="py-8 -z-10 ">
         <h1 className="text-2xl font-semibold text-foreground">
           tools and technologies
         </h1>
@@ -148,13 +176,6 @@ export default function Home() {
               <span className="font-semibold text-sm"> Prisma</span>
             </h2>
           </div>
-
-          <div className="border bg-fadedBackground py-2 px-2 flex items-center justify-between cursor-pointer rounded-sm w-fit">
-            <h2 className="flex gap-2">
-              <SiDocker className="text-xl" />{" "}
-              <span className="font-semibold text-sm"> Docker</span>
-            </h2>
-          </div>
           <div className="border bg-fadedBackground py-2 px-2 flex items-center justify-between cursor-pointer rounded-sm w-fit">
             <h2 className="flex gap-2">
               <BiLogoPostgresql className="text-xl" />{" "}
@@ -175,13 +196,79 @@ export default function Home() {
             </h2>
           </div>
         </div>
+
+        <div className="mt-8">
+          <p>
+            {" "}
+            With the <span className="font-semibold">depth</span>  of  Web Application development my <span className="font-semibold">horizantal</span>   abilites starts form the system and ui/ux design
+            to the testing and continious intergration and continious delivery
+            to the successful deployment to the cloud platforms.
+          </p>
+          <div className="mt-8 flex flex-wrap gap-4">
+            <div className="border bg-fadedBackground py-2 px-2 flex items-center justify-between cursor-pointer rounded-sm w-fit">
+              <h2 className="flex gap-2">
+                <SiDocker className="text-xl" />{" "}
+                <span className="font-semibold text-sm"> Docker</span>
+              </h2>
+            </div>
+            <div className="border bg-fadedBackground py-2 px-2 flex items-center justify-between cursor-pointer rounded-sm w-fit">
+              <h2 className="flex gap-2">
+                <SiKubernetes className="text-xl" />{" "}
+                <span className="font-semibold text-sm"> Kubernaties</span>
+              </h2>
+            </div>
+            <div className="border bg-fadedBackground py-2 px-2 flex items-center justify-between cursor-pointer rounded-sm w-fit">
+              <h2 className="flex gap-2">
+                <VscSymbolMethod className="text-xl" />{" "}
+                <span className="font-semibold text-sm"> CD/CI</span>
+              </h2>
+            </div>
+            <div className="border bg-fadedBackground py-2 px-2 flex items-center justify-between cursor-pointer rounded-sm w-fit">
+              <h2 className="flex gap-2">
+                <FaLinux className="text-xl" />{" "}
+                <span className="font-semibold text-sm"> Linux</span>
+              </h2>
+            </div>
+            <div className="border bg-fadedBackground py-2 px-2 flex items-center justify-between cursor-pointer rounded-sm w-fit">
+              <h2 className="flex gap-2">
+                <SiFigma className="text-xl" />{" "}
+                <span className="font-semibold text-sm"> Figma</span>
+              </h2>
+            </div>
+            <div className="border bg-fadedBackground py-2 px-2 flex items-center justify-between cursor-pointer rounded-sm w-fit">
+              <h2 className="flex gap-2">
+                <SiJest className="text-xl" />{" "}
+                <span className="font-semibold text-sm"> Jest</span>
+              </h2>
+            </div>
+            <div className="border bg-fadedBackground py-2 px-2 flex items-center justify-between cursor-pointer rounded-sm w-fit">
+              <h2 className="flex gap-2">
+                <FaCode className="text-xl" />{" "}
+                <span className="font-semibold text-sm"> Test Driven Developemt</span>
+              </h2>
+            </div>
+            <div className="border bg-fadedBackground py-2 px-2 flex items-center justify-between cursor-pointer rounded-sm w-fit">
+              <h2 className="flex gap-2">
+                <SiGithubactions className="text-xl" />{" "}
+                <span className="font-semibold text-sm">Github Actions</span>
+              </h2>
+            </div>
+            <div className="border bg-fadedBackground py-2 px-2 flex items-center justify-between cursor-pointer rounded-sm w-fit">
+              <h2 className="flex gap-2">
+                <SiGooglecloud className="text-xl" />{" "}
+                <span className="font-semibold text-sm">Google Cloud Platform</span>
+              </h2>
+            </div>
+          </div>
+        </div>
       </div>
 
+
       {/* recent posts */}
-      <div className="py-8">
+      <div className="pb-8">
         <h1 className="text-2xl font-semibold text-foreground">
           {" "}
-          recent posts
+        read my blogs
         </h1>
         <div className="mt-8 flex flex-col gap-4">
           {allPosts
@@ -208,7 +295,7 @@ export default function Home() {
             ))}
         </div>
       </div>
-      <div className="pt-8 flex flex-col gap-4">
+      <div className=" flex flex-col gap-4">
         <h1 className="text-2xl font-semibold pb-2 text-foreground  ">links</h1>
 
         <div className="flex gap-4">
@@ -240,9 +327,6 @@ export default function Home() {
             niureamrit2@gmail.com <ArrowUpRight size={15} />{" "}
           </a>
         </div>
-        <p className="text-foregroundLight unique-font bg-slate-900 px-2 border-l-2">
-          where simplicity meets brilliance, innovation flourishes. 
-        </p>
       </div>
     </div>
   );
