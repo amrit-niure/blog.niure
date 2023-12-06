@@ -23,7 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`antialiased min-h-screen bg-background text-foreground ${inter.className}`}
+        className={`antialiased min-h-screen bg-background text-foreground ${public_sans.className}`}
       >
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <div className="max-w-2xl mx-auto py-10 px-4">

@@ -1,0 +1,204 @@
+---
+title: Share files and Folders between Linux and Windows on a network
+description: Learn how to effortlessly share files and folders between Linux and Windows machines using Samba.
+date: 2023-12-06
+relatedto: os
+readingTime: 6 min 45 sec
+tags:
+  - linux
+  - windows
+  - samba
+---
+Sharing files and folders between Linux and Windows machines on the same network can significantly improve collaboration. In this comprehensive guide, we'll take you through the process step by step.
+
+## Prerequisites
+
+Make sure your Linux machine (in this case Ubuntu) and Windows machines are connected to the same network.
+
+## In Windows
+### Configuring Windows for File Sharing
+
+To enable file and printer sharing and network discovery on your Windows machine:
+
+1. Open the Control Panel.
+2. Navigate to "Network and Internet."
+3. Find "Network and Sharing Center."
+4. Click on "Change advanced sharing settings."
+5. Turn on "Turn on network discovery" and "Turn on file and printer sharing." under Private Section.
+6. Under All Network, "Turn on password protected sharing" for the literal job. 
+7. Save changes.
+
+## In Linux
+### Step 1: Install Samba on Ubuntu
+
+Firstly, check your Ubuntu machine's hostname:
+
+```bash
+hostname
+```
+
+Update your system:  
+Its always a good practice to up date your system before installing new package.
+```bash
+sudo apt update
+```
+
+Install Samba, a utility package for file and folder sharing:
+
+```bash
+sudo apt install samba -y
+```
+
+Start the Samba service:
+
+```bash
+sudo systemctl enable --now smbd
+```
+
+Check the service status:
+
+```bash
+sudo systemctl status samba
+```
+
+You should see "active (running)" in the terminal.
+
+### Step 2: Create a Shared Folder
+
+Navigate to your home directory and create a folder named "shared_folder":
+
+```bash
+mkdir shared_folder
+```
+
+Check the folder and its access privileges:
+
+```bash
+ls -l
+```  
+You will find it only has access privileages of root.
+
+### Step 3: Create a Samba Username and Password
+
+Create a Samba user:
+
+```bash
+sudo smbpasswd -a [anyusername]
+```
+
+Replace "[anyusername]" with your desired username.
+
+### Step 4: Edit Samba Configuration
+
+Open the Samba configuration file for editing:
+
+```bash
+sudo nano /etc/samba/smb.conf
+```
+
+Scroll to the bottom and add the following configuration for the shared folder:
+
+```bash
+[shared_folder]
+path = /home/[your_username]/shared_folder
+read only = no
+valid users = [your_username]
+```
+
+Save and exit nano by pressing Ctrl + X then Y and Enter.
+
+Restart the Samba service:
+
+```bash
+sudo systemctl restart smbd
+```
+
+### Step 5: Access Shared Folder from Windows
+
+Open File Explorer and type the Linux IP address in the address bar:
+
+```
+\\[your Linux IP address]
+```
+
+[Note]: Enter the Samba credentials when prompted. Now, you can access and work with files in the shared folder from both Linux and Windows.
+
+### Creating a Public Folder
+
+If you want a public folder accessible without a password, follow these additional steps:
+
+Create a public folder in the root directory:
+
+```bash
+sudo mkdir /public_folder
+```
+
+Change ownership to nobody (an ordinary user, not privileged):
+
+```bash
+sudo chown nobody:nogroup /public_folder/
+```
+
+Give write permissions to group and others:
+
+```bash
+sudo chmod g+w, o+w /public_folder/
+```
+
+Edit Samba configuration for the public folder:
+
+```bash
+sudo nano /etc/samba/smb.conf
+```
+
+Add the following configuration at the end:
+
+```bash
+[public_folder]
+path = /public_folder
+guest ok = yes
+read only = no
+force user = nobody
+```
+
+Save and exit nano by pressing Ctrl + X then Y and Enter.
+
+Restart the Samba service:
+
+```bash
+sudo systemctl restart smbd
+```
+
+Now, you have a public folder accessible without a password. Enjoy seamless file sharing between your Linux and Windows machines!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
