@@ -38,8 +38,8 @@ export default function Home() {
           hi, I&#39;m Amrit 👋
         </h1>
         <p className=" tracking-wide  text-foregroundLight">
-          I&#39;m Amrit Niure, a <span className="italic">junior</span>
-          <span className="font-semibold"> Software Developer. </span> I
+          I&#39;m Amrit Niure, a Freelance
+          <span className="font-semibold"> Software Engineer. </span> I
           specialize in the development of Web Applications. <br />
           <p className="border my-2 border-l-4 px-2 italic py-1 tracking-normal">
           &#34; I believe, the true measure of success lies not just in the tools and
