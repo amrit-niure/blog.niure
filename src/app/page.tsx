@@ -335,11 +335,11 @@ export default function Home() {
             <User2 size={18} /> Amrit Niure
           </h1>
           <a
-            href="mailto:niureamrit2@gmail.com?"
+            href="mailto:niureamrit100@gmail.com?"
             target="_blank"
             className="italic flex hover:underline w-fit"
           >
-            niureamrit2@gmail.com <ArrowUpRight size={15} />
+            niureamrit100@gmail.com <ArrowUpRight size={15} />
           </a>
         </div>
       </div>
