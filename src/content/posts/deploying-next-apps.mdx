@@ -1,8 +1,3 @@
-# Fixed MDX Content for Your Blog Post
-
-Here's the corrected version of your PHP database connection post in proper MDX format:
-
-```markdown
 ---
 title: PHP Database Connection
 description: How to talk to database using php.
@@ -23,7 +18,7 @@ tags:
 $servername = "localhost"; // This is like your house's address
 $username = "username";    // This is your name
 $password = "password";    // This is your secret knock
-$dbname = "QT_2081";      // This is the name of your toy box
+$dbname = "mydatabase";      // This is the name of your toy box
 
 // Let's try to connect! It's like knocking on the door
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -38,7 +33,7 @@ echo "Connected successfully"; // Yay! We're inside!
 
 **Explanation**  
 Imagine your computer is a house (`$servername = "localhost"`).  
-To get in, you need a name (`$username`), a password (`$password`), and the name of the place inside, like your toy box (`$dbname = "QT_2081"`).  
+To get in, you need a name (`$username`), a password (`$password`), and the name of the place inside, like your toy box (`$dbname = "mydatabase"`).  
 This code tries to open the door. If it works, you're in! If not, it'll tell you the door is locked.
 
 ## Part 2: Creating the "Student" Table
