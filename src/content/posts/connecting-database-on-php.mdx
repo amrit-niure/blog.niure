@@ -16,8 +16,8 @@ tags:
 
 ```php
 $servername = "localhost"; // This is like your house's address
-$username = "root";    // This is your name
-$password = "root";    // This is your secret knock
+$username = "username";    // This is your name
+$password = "password";    // This is your secret knock
 $dbname = "QT_2081";      // This is the name of your toy box
 
 // Let's try to connect! It's like knocking on the door
@@ -98,7 +98,7 @@ Finally, we close the toy box (`$conn->close()`). All done!
 // Database connection settings
 $servername = "localhost";
 $username = "root";
-$password = "root";
+$password = "";
 $dbname = "QT_2081";
 
 // Create connection
@@ -122,20 +122,23 @@ if ($conn->query($sql) === TRUE) {
 } else {
     echo "Error creating table: " . $conn->error . "<br>";
 }
-// lets add two student records
-$sql = "INSERT INTO Student (StdName, Gender) VALUES
-('Alice', 'Female'),
-('Bob', 'Male')";
 
-// Did we add them okay?
-if ($conn->query($sql) === TRUE) {
-  echo "New records created successfully"; // Yay! Toys added!
-} else {
-  echo "Error: " . $sql . "<br>" . $conn->error; // Oh no! Something went wrong!
+// Insert student records
+$students = [
+    [1, 'John Doe', 'Male'],
+    [2, 'Jane Smith', 'Female']
+];
+
+foreach ($students as $student) {
+    $sql = "INSERT INTO Student (StdId, StdName, Gender) 
+            VALUES ($student[0], '$student[1]', '$student[2]')";
+    
+    if ($conn->query($sql) === TRUE) {
+        echo "Student {$student[0]} inserted!<br>";
+    } else {
+        echo "Error inserting record: " . $conn->error . "<br>";
+    }
 }
-
-// All done! Let's close the toy box.
-$conn->close();
 
 // Close connection
 $conn->close();
