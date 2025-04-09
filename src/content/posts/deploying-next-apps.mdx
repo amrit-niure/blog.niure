@@ -16,9 +16,9 @@ tags:
 
 ```php
 $servername = "localhost"; // This is like your house's address
-$username = "username";    // This is your name
-$password = "password";    // This is your secret knock
-$dbname = "mydatabase";      // This is the name of your toy box
+$username = "root";    // This is your name
+$password = "root";    // This is your secret knock
+$dbname = "QT_2081";      // This is the name of your toy box
 
 // Let's try to connect! It's like knocking on the door
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -98,8 +98,8 @@ Finally, we close the toy box (`$conn->close()`). All done!
 // Database connection settings
 $servername = "localhost";
 $username = "root";
-$password = "";
-$dbname = "mydatabase";
+$password = "root";
+$dbname = "QT_2081";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
