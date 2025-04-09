@@ -11,6 +11,97 @@ tags:
 ---
 # PHP Database Connection and Operations
 
+Part 1: Connecting to the Database
+
+php
+
+<?php
+$servername = "localhost"; // This is like your house's address
+$username   = "username";   // This is your name
+$password   = "password";   // This is your secret knock
+$dbname     = "QT_2081";    // This is the name of your toy box
+
+// Let's try to connect! It's like knocking on the door
+$conn = new mysqli($servername, $username, $password);
+
+// Did we connect okay?
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error); // Oh no! Door's locked!
+}
+
+echo "Connected successfully"; // Yay! We're inside!
+?>
+Explanation 
+
+Imagine your computer is a house `$servername` = "localhost".
+To get in, you need a name `$username`, a password `$password`, and the name of the place inside, like your toy box `$dbname` = "QT\_2081".
+This code tries to open the door. If it works, you're in! If not, it'll tell you the door is locked.
+Part 2: Creating the "Student" Table
+
+php
+
+<?php
+// (Assuming the connection code from Part 1 is here)
+
+// First, let's choose the toy box (database)
+$conn->select_db($dbname);
+
+// Now, let's make a new space in the toy box for students!
+$sql = "CREATE TABLE Student (
+  StdId INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  StdName VARCHAR(30) NOT NULL,
+  Gender VARCHAR(10) NOT NULL
+)";
+
+// Did we make the space okay?
+if ($conn->query($sql) === TRUE) {
+  echo "Table Student created successfully"; // Hooray! New space created!
+} else {
+  echo "Error creating table: " . $conn->error; // Oh no! Couldn't make the space!
+}
+?>
+Explanation 
+
+First, we pick the toy box `$conn->select_db($dbname)`.
+Then, we create a special spot inside for "Student" toys `$sql`.
+Each student toy has a number 
+‘StdId‘, 
+a name ‘StdName‘, 
+and if it's a boy or a girl ‘Gender‘.
+If we make the spot okay, we're happy! If not, we ask for help.
+Part 3: Adding Students to the Table
+
+php
+
+<?php
+// (Assuming the connection and table creation code is here)
+
+// Now, let's add some student toys!
+$sql = "INSERT INTO Student (StdName, Gender) VALUES
+('Alice', 'Female'),
+('Bob', 'Male')";
+
+// Did we add them okay?
+if ($conn->query($sql) === TRUE) {
+  echo "New records created successfully"; // Yay! Toys added!
+} else {
+  echo "Error: " . $sql . "<br>" . $conn->error; // Oh no! Something went wrong!
+}
+
+// All done! Let's close the toy box.
+$conn->close();
+?>
+Explanation
+
+Now we put some student toys into the spot we made `$sql`.
+We put Alice, who is a girl, and Bob, who is a boy.
+If we put them in okay, we're happy! If not, we ask for help.
+Finally, we close the toy box `$conn->close()`. All done!
+
+
+
+#Complete Code
+
 A simple PHP program that connects to a database, creates a table, and inserts two student records, all in one file.
 
 ```php
