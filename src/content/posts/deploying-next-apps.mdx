@@ -1,28 +1,32 @@
+# Fixed MDX Content for Your Blog Post
+
+Here's the corrected version of your PHP database connection post in proper MDX format:
+
+```markdown
 ---
 title: PHP Database Connection
 description: How to talk to database using php.
 date: 2023-01-02
 relatedto: deployment
-readingTime : 6 min 45 sec
+readingTime: 6 min 45 sec
 tags:
-  - Next Js
-  - Vercel
-  - deployment
+  - PHP
+  - Database
+  - MySQL
 ---
+
 # PHP Database Connection and Operations
 
-Part 1: Connecting to the Database
+## Part 1: Connecting to the Database
 
-php
-
-<?php
+```php
 $servername = "localhost"; // This is like your house's address
-$username   = "username";   // This is your name
-$password   = "password";   // This is your secret knock
-$dbname     = "QT_2081";    // This is the name of your toy box
+$username = "username";    // This is your name
+$password = "password";    // This is your secret knock
+$dbname = "QT_2081";      // This is the name of your toy box
 
 // Let's try to connect! It's like knocking on the door
-$conn = new mysqli($servername, $username, $password);
+$conn = new mysqli($servername, $username, $password, $dbname);
 
 // Did we connect okay?
 if ($conn->connect_error) {
@@ -30,19 +34,16 @@ if ($conn->connect_error) {
 }
 
 echo "Connected successfully"; // Yay! We're inside!
-?>
-Explanation 
+```
 
-Imagine your computer is a house `$servername` = "localhost".
-To get in, you need a name `$username`, a password `$password`, and the name of the place inside, like your toy box `$dbname` = "QT\_2081".
+**Explanation**  
+Imagine your computer is a house (`$servername = "localhost"`).  
+To get in, you need a name (`$username`), a password (`$password`), and the name of the place inside, like your toy box (`$dbname = "QT_2081"`).  
 This code tries to open the door. If it works, you're in! If not, it'll tell you the door is locked.
-Part 2: Creating the "Student" Table
 
-php
+## Part 2: Creating the "Student" Table
 
-<?php
-// (Assuming the connection code from Part 1 is here)
-
+```php
 // First, let's choose the toy box (database)
 $conn->select_db($dbname);
 
@@ -59,23 +60,20 @@ if ($conn->query($sql) === TRUE) {
 } else {
   echo "Error creating table: " . $conn->error; // Oh no! Couldn't make the space!
 }
-?>
-Explanation 
+```
 
-First, we pick the toy box `$conn->select_db($dbname)`.
-Then, we create a special spot inside for "Student" toys `$sql`.
-Each student toy has a number 
-‘StdId‘, 
-a name ‘StdName‘, 
-and if it's a boy or a girl ‘Gender‘.
+**Explanation**  
+First, we pick the toy box (`$conn->select_db($dbname)`).  
+Then, we create a special spot inside for "Student" toys (`$sql`).  
+Each student toy has:
+- A number (`StdId`)
+- A name (`StdName`)
+- Gender (`Gender`)  
 If we make the spot okay, we're happy! If not, we ask for help.
-Part 3: Adding Students to the Table
 
-php
+## Part 3: Adding Students to the Table
 
-<?php
-// (Assuming the connection and table creation code is here)
-
+```php
 // Now, let's add some student toys!
 $sql = "INSERT INTO Student (StdName, Gender) VALUES
 ('Alice', 'Female'),
@@ -90,19 +88,15 @@ if ($conn->query($sql) === TRUE) {
 
 // All done! Let's close the toy box.
 $conn->close();
-?>
-Explanation
+```
 
-Now we put some student toys into the spot we made `$sql`.
-We put Alice, who is a girl, and Bob, who is a boy.
-If we put them in okay, we're happy! If not, we ask for help.
-Finally, we close the toy box `$conn->close()`. All done!
+**Explanation**  
+Now we put some student toys into the spot we made (`$sql`).  
+We put Alice (who is a girl) and Bob (who is a boy).  
+If we put them in okay, we're happy! If not, we ask for help.  
+Finally, we close the toy box (`$conn->close()`). All done!
 
-
-
-#Complete Code
-
-A simple PHP program that connects to a database, creates a table, and inserts two student records, all in one file.
+## Complete Code Example
 
 ```php
 <?php
@@ -134,65 +128,27 @@ if ($conn->query($sql) === TRUE) {
     echo "Error creating table: " . $conn->error . "<br>";
 }
 
-// Insert first student record
-$sql = "INSERT INTO Student (StdId, StdName, Gender) 
-        VALUES (1, 'John Doe', 'Male')";
+// Insert student records
+$students = [
+    [1, 'John Doe', 'Male'],
+    [2, 'Jane Smith', 'Female']
+];
 
-if ($conn->query($sql) === TRUE) {
-    echo "First student record inserted!<br>";
-} else {
-    echo "Error inserting first record: " . $conn->error . "<br>";
-}
-
-// Insert second student record
-$sql = "INSERT INTO Student (StdId, StdName, Gender) 
-        VALUES (2, 'Jane Smith', 'Female')";
-
-if ($conn->query($sql) === TRUE) {
-    echo "Second student record inserted!<br>";
-} else {
-    echo "Error inserting second record: " . $conn->error . "<br>";
+foreach ($students as $student) {
+    $sql = "INSERT INTO Student (StdId, StdName, Gender) 
+            VALUES ($student[0], '$student[1]', '$student[2]')";
+    
+    if ($conn->query($sql) === TRUE) {
+        echo "Student {$student[0]} inserted!<br>";
+    } else {
+        echo "Error inserting record: " . $conn->error . "<br>";
+    }
 }
 
 // Close connection
 $conn->close();
 ?>
 ```
-
-## Explanation
-
-### 1. Making Friends with the Database
-- Imagine the database is like a toy box named "mydatabase"
-- We say "Hello" to the toy box using `$conn = new mysqli(...)`
-- If we can't open the toy box, we say "Oh no! Connection failed!"
-
-### 2. Creating a Special Shelf for Toys
-- We make a special shelf called "Student" with 3 compartments:
-  - `StdId` (Student ID - like a special number for each toy)
-  - `StdName` (Student Name - the name we put on the toy)
-  - `Gender` (Is it a "boy" toy or "girl" toy or whatever)
-
-### 3. Putting Toys on the Shelf
-- We put two toys on our new shelf:
-  1. First toy: ID=1, Name="John Doe", Gender="Male"
-  2. Second toy: ID=2, Name="Jane Smith", Gender="Female"
-- Each time we put a toy, we check if it went on the shelf properly
-
-### 4. Saying Goodbye
-- When we're done playing, we close the toy box with `$conn->close()`
-
-### What Each Part Does:
-- `$servername`, `$username`, `$password`, `$dbname` - These are like secret codes to open the toy box
-- `new mysqli()` - This is how we say "Hello" to the database
-- `CREATE TABLE` - This makes our special shelf with compartments
-- `INSERT INTO` - This puts our toys (student records) on the shelf
-- `$conn->query()` - This is how we tell the database what we want to do
-- `$conn->close()` - This is how we say "Goodbye" to the database
-
-When you run this program, it will:
-1. Connect to the database
-2. Make a Student table (if it doesn't exist)
-3. Add two students
-4. Tell you what it did at each step!
-
-What I've written here is probably long enough, but adding this final sentence can't hurt.
+**Conclusion**
+Now you know how to connect to a database using PHP, create a table, and add records!
+This is a simple way to manage your toys (data) in a box (database).
